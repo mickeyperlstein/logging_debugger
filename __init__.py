@@ -3,6 +3,8 @@ import logging
    
 def show_dict_fields(prefix, dict1):
     for fld,val in dict1.items():
+                if hasattr(val, '_fmt'):
+                    val = val._fmt
                 print('%s%s=%s' %(prefix, fld,val) )
 def show_log(k,v):
     if not isinstance(v, logging.PlaceHolder):
